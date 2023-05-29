@@ -31,6 +31,7 @@ const Search = ({ withLogo = true, lang }) => {
         ) : null}
 
         <InputBase
+          radius="xl"
           ref={inputRef}
           value={searchValue}
           onChange={(e) => setSearchValue(e.target.value)}

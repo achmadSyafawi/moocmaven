@@ -40,12 +40,15 @@ const Results = () => {
         dispatch(postSearch({ searchValue: searchValue, lang: searchLang }));
       }
     }
+    // eslint-disable-next-line react-hooks/exhaustive-deps
+  }, []);
 
-    if (postSearchError) {
+  useEffect(() => {
+    if (!postSearchLoading && postSearchError) {
       setShowError(true);
     }
     // eslint-disable-next-line react-hooks/exhaustive-deps
-  }, []);
+  }, [postSearchLoading]);
 
   const handleOnSubmit = (e) => {
     e.preventDefault();
@@ -86,7 +89,7 @@ const Results = () => {
           <Alert
             withCloseButton
             icon={<AlertCircle size="1rem" />}
-            title="Ni nu ni nu"
+            title={postSearchError}
             color="red"
             onClose={(e) => {
               setShowError(false);

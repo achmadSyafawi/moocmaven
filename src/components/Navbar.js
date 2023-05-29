@@ -1,6 +1,7 @@
 import React from "react";
 import { Flex, Image, Select } from "@mantine/core";
 import Moocmaven from "../assets/logo-no-background.png";
+import { Language } from "tabler-icons-react";
 
 const Navbar = ({
   size,
@@ -37,6 +38,7 @@ const Navbar = ({
           onChange={setLang}
           searchable
           nothingFound="No options"
+          icon={<Language size="1rem" />}
         />
       </Flex>
     </nav>
